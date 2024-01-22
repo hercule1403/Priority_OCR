@@ -25,7 +25,8 @@ namespace GlobalDMS.Data.Repositories
                     cmd.Parameters.AddWithValue("@DocumentType", document.DocumentType);
                     cmd.Parameters.AddWithValue("@TransactionType", document.TransactionType);
                     cmd.Parameters.AddWithValue("@PdfFile", document.PdfFile);
-
+                    cmd.Parameters.AddWithValue("@SearchKey", document.SearchKey);
+                    cmd.Parameters.AddWithValue("@OcrType", document.OcrType);
                     // Add an output parameter to capture the result message from the stored procedure
                     SqlParameter resultParam = new SqlParameter("@ResultMessage", SqlDbType.NVarChar, 2000);
                     resultParam.Direction = ParameterDirection.Output;
@@ -134,6 +135,7 @@ namespace GlobalDMS.Data.Repositories
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@TargetField", document.TargetField);
                     cmd.Parameters.AddWithValue("@PdfFile", document.PdfFile);
+                    cmd.Parameters.AddWithValue("@DocumentType", document.DocumentType);
                     cmd.Parameters.AddWithValue("@TransactionType", document.TransactionType);
                     cmd.Parameters.AddWithValue("@SearchKey", document.SearchKey);
                     cmd.Parameters.AddWithValue("@OcrType", document.OcrType);
